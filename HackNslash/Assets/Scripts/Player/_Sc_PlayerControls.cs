@@ -17,11 +17,24 @@ public class _Sc_PlayerControls : MonoBehaviour
     [SerializeField]
     float dValue = 0;
 
+    public static _Sc_PlayerControls instance;
+    public bool attackIsPressed = false;
 
     public Vector2 direction = Vector2.zero;
+
+    private void Start()
+    {
+        instance = this;
+    }
     void Update()
     {
 
+        if(Input.GetMouseButtonDown(1)){
+            attackIsPressed = true;
+        }
+        else if(Input.GetMouseButtonUp(1)){
+            attackIsPressed = false;
+        }
 
        /* if(Input.GetKeyDown(KeyCode.UpArrow)){
 
